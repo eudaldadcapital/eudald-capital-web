@@ -34,7 +34,7 @@ export default function SobreMi() {
           <div style={{ fontFamily: 'Syne, sans-serif', fontWeight: 700, fontSize: '1.4rem', marginBottom: '0.3rem' }}>Eudald</div>
           <div style={{ color: G, fontSize: '0.78rem', letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: '1.5rem' }}>Acompañante de inversión · EudaldCapital</div>
           <p style={{ color: '#8a8a8a', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
-            Soy inversor particular con más de dos años de experiencia gestionando mi propia cartera. Decidí crear EudaldCapital para compartir lo que he aprendido y acompañar a otras personas que quieren empezar a invertir sin complicaciones.
+            Soy inversor particular con más de tres años de experiencia gestionando mi propia cartera. Decidí crear EudaldCapital para compartir lo que he aprendido y acompañar a otras personas que quieren empezar a invertir sin complicaciones.
           </p>
           <p style={{ color: '#8a8a8a', fontSize: '0.9rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
             <strong style={{ color: '#fafaf8' }}>No soy asesor financiero registrado.</strong> Lo que ofrezco es mi experiencia personal, explicada de forma clara y honesta, para que puedas tomar tus propias decisiones con más criterio.

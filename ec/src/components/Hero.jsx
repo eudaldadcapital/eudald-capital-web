@@ -27,17 +27,12 @@ function ParticleCanvas() {
     const ctx = canvas.getContext('2d')
     let W = canvas.offsetWidth, H = canvas.offsetHeight
     canvas.width = W; canvas.height = H
-
     const particles = Array.from({ length: 60 }, () => ({
-      x: Math.random() * W,
-      y: Math.random() * H,
+      x: Math.random() * W, y: Math.random() * H,
       r: Math.random() * 1.5 + 0.3,
-      vx: (Math.random() - 0.5) * 0.3,
-      vy: (Math.random() - 0.5) * 0.3 - 0.1,
-      alpha: Math.random() * 0.5 + 0.1,
-      pulse: Math.random() * Math.PI * 2,
+      vx: (Math.random() - 0.5) * 0.3, vy: (Math.random() - 0.5) * 0.3 - 0.1,
+      alpha: Math.random() * 0.5 + 0.1, pulse: Math.random() * Math.PI * 2,
     }))
-
     let raf
     const draw = () => {
       ctx.clearRect(0, 0, W, H)
@@ -55,11 +50,7 @@ function ParticleCanvas() {
       raf = requestAnimationFrame(draw)
     }
     draw()
-
-    const resize = () => {
-      W = canvas.offsetWidth; H = canvas.offsetHeight
-      canvas.width = W; canvas.height = H
-    }
+    const resize = () => { W = canvas.offsetWidth; H = canvas.offsetHeight; canvas.width = W; canvas.height = H }
     window.addEventListener('resize', resize)
     return () => { cancelAnimationFrame(raf); window.removeEventListener('resize', resize) }
   }, [])
@@ -86,9 +77,8 @@ export default function Hero() {
   const fullText = 'Invierte de forma '
   const [statsVisible, setStatsVisible] = useState(false)
   const statsRef = useRef(null)
-
   const count1 = useCountUp(1000, 1500, statsVisible)
-  const count2 = useCountUp(2, 1200, statsVisible)
+  const count2 = useCountUp(3, 1200, statsVisible)
   const count3 = useCountUp(4, 1000, statsVisible)
 
   useEffect(() => {
@@ -111,13 +101,10 @@ export default function Hero() {
     <section id="inicio" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', padding: '8rem 2.5rem 4rem', position: 'relative', overflow: 'hidden', background: '#0a0a0a' }}>
       <ParticleCanvas />
       <GridLines />
-
-      {/* Glow orbs */}
-      <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 65%)', pointerEvents: 'none', transition: 'transform 0.1s' }} />
+      <div style={{ position: 'absolute', top: '-10%', right: '-5%', width: 600, height: 600, borderRadius: '50%', background: 'radial-gradient(circle,rgba(201,168,76,0.08) 0%,transparent 65%)', pointerEvents: 'none' }} />
       <div style={{ position: 'absolute', bottom: '-15%', left: '-5%', width: 400, height: 400, borderRadius: '50%', background: 'radial-gradient(circle,rgba(201,168,76,0.04) 0%,transparent 70%)', pointerEvents: 'none' }} />
 
       <div style={{ position: 'relative', zIndex: 1, opacity: visible ? 1 : 0, transform: visible ? 'translateY(0)' : 'translateY(32px)', transition: 'opacity 1s ease, transform 1s ease' }}>
-
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(201,168,76,0.08)', border: '1px solid rgba(201,168,76,0.2)', color: G, padding: '0.4rem 1rem', borderRadius: '2rem', fontSize: '0.75rem', letterSpacing: '0.07em', textTransform: 'uppercase', marginBottom: '2rem' }}>
           <div style={{ width: 6, height: 6, borderRadius: '50%', background: G, animation: 'pulse 2s infinite' }} />
           Educación e inversión · Valencia
@@ -129,8 +116,8 @@ export default function Hero() {
           <span style={{ opacity: typed.length >= fullText.length ? 1 : 0, transition: 'opacity 0.5s' }}>{' '}desde el primer euro.</span>
         </h1>
 
-        <p style={{ fontSize: '1rem', color: '#8a8a8a', maxWidth: 460, marginBottom: '2rem', lineHeight: 1.8, opacity: visible ? 1 : 0, transition: 'opacity 1.2s ease 0.4s' }}>
-          Comparto mi experiencia y acompaño a jóvenes y adultos a entender y construir sus propias carteras de ETFs. Sencillo, transparente y a largo plazo.
+        <p style={{ fontSize: '1rem', color: '#8a8a8a', maxWidth: 460, marginBottom: '2rem', lineHeight: 1.8 }}>
+          Comparto mi experiencia y acompaño a jóvenes y adultos a entender y construir sus propias carteras. Sencillo, transparente y a largo plazo.
         </p>
 
         <div style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', background: 'rgba(255,255,255,0.03)', border: '1px solid #1e1e1e', padding: '0.5rem 1rem', borderRadius: '0.75rem', marginBottom: '2rem' }}>
@@ -154,9 +141,10 @@ export default function Hero() {
 
         <div ref={statsRef} style={{ display: 'flex', gap: '3rem', paddingTop: '3rem', borderTop: '1px solid #1e1e1e', flexWrap: 'wrap' }}>
           {[
-            { num: `${count1.toLocaleString('es-ES')}€`, suffix: '', label: 'Capital mínimo de entrada' },
-            { num: `+${count2}`, suffix: ' años', label: 'Experiencia invirtiendo' },
-            { num: `${count3}€`, suffix: '/mes', label: 'Desde solo al mes' },
+            { num: `${count1.toLocaleString('es-ES')}€`, label: 'Capital mínimo de entrada' },
+            { num: `+${count2} años`, label: 'Experiencia invirtiendo' },
+            { num: `${count3}€/mes`, label: 'Desde solo al mes' },
+            { num: '10+', label: 'Inversores acompañados' },
           ].map(({ num, label }) => (
             <div key={label} style={{ transition: 'transform 0.3s' }}
               onMouseEnter={e => e.currentTarget.style.transform = 'translateY(-4px)'}

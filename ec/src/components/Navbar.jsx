@@ -24,14 +24,13 @@ export default function Navbar() {
       <div style={{ cursor: 'pointer' }} onClick={() => go('inicio')}>
         <Logo height={38} />
       </div>
-
-      <ul style={{ display: 'flex', gap: '2rem', listStyle: 'none' }}>
+      <ul style={{ display: 'flex', gap: '1.8rem', listStyle: 'none' }}>
         {[
-          ['como-funciona', 'Cómo funciona'],
-          ['sobre-mi', 'Sobre mí'],
-          ['precios', 'Precios'],
-          ['calculadora', 'Calculadora'],
-          ['contacto', 'Contacto'],
+          ['como-funciona','Cómo funciona'],
+          ['resultados','Resultados'],
+          ['precios','Precios'],
+          ['calculadora','Calculadora'],
+          ['contacto','Contacto'],
         ].map(([id, label]) => (
           <li key={id}>
             <span onClick={() => go(id)} style={{ color: '#8a8a8a', fontSize: '0.8rem', letterSpacing: '0.05em', textTransform: 'uppercase', cursor: 'pointer', transition: 'color 0.2s' }}
@@ -42,7 +41,6 @@ export default function Navbar() {
           </li>
         ))}
       </ul>
-
       <button onClick={() => go('contacto')} style={{ background: `linear-gradient(135deg, ${G}, #a8832a)`, color: '#0a0a0a', padding: '0.55rem 1.4rem', borderRadius: '2rem', fontSize: '0.82rem', fontWeight: 600, border: 'none', transition: 'opacity 0.2s, transform 0.2s', cursor: 'pointer' }}
         onMouseEnter={e => { e.currentTarget.style.opacity = '0.85'; e.currentTarget.style.transform = 'translateY(-1px)' }}
         onMouseLeave={e => { e.currentTarget.style.opacity = '1'; e.currentTarget.style.transform = 'translateY(0)' }}>

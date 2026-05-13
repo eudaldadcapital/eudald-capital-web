@@ -51,9 +51,6 @@ button { cursor: pointer; font-family: 'Inter', sans-serif; }
 }
 
 /* Ocultar cursor nativo en desktop */
-@media (pointer: fine) {
-  * { cursor: none !important; }
-}
 
 /* Animación shimmer en botones dorados */
 @keyframes shimmer {
